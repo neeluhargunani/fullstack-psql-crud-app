@@ -16,7 +16,7 @@ const ListComponents = () => {
  
 //  get student list
   useEffect(() =>{
-    axios.get('http://localhost:5000/students').then(res =>{
+    axios.get('/students').then(res =>{
       console.log(res)
       setStudentList(res.data)
     })

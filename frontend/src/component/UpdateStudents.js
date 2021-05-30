@@ -23,7 +23,7 @@ const UpdateStudents = ({ student }) => {
     try {
       const body = { fullname, email, phone, address, course,message };
       const response = await fetch(
-        `http://localhost:5000/students/${student.std_id}`,
+        `/students/${student.std_id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

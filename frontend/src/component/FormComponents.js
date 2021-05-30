@@ -31,7 +31,7 @@ function FormComponents() {
   };
 
   const addStudent=()=>{
-    axios.post('http://localhost:5000/students', {
+    axios.post('/students', {
       fullname: fullname,
       email: email,
       phone: phone,
