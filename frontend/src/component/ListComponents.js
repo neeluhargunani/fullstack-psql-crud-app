@@ -29,7 +29,7 @@ const ListComponents = () => {
 
  const deleteStudent = async id => {
   try {
-    const deleteTodo = await fetch(`http://localhost:5000/students/${id}`, {
+    const deleteTodo = await fetch(`/students/${id}`, {
       method: "DELETE"
     });
 

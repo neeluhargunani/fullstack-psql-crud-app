@@ -1,11 +1,13 @@
 const Pool = require('pg').Pool;
+require("dotenv").config();
+
+const devConfig =`postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_DATABASE}`;
+    
+const proConfig =  process.env.DATABASE_URL //heroku addon
+
+
 const pool = new Pool({
-    user:"rkpolnfemcoiex",
-    password:"c7627581880e947aad913b03b5f3f09c4eddcb783603d7c9563fd26ae2e018af",
-    host:"ec2-3-212-75-25.compute-1.amazonaws.com",
-    port:5432,
-    database:"da85e7t5v78frf",
-    URI:"postgres://rkpolnfemcoiex:c7627581880e947aad913b03b5f3f09c4eddcb783603d7c9563fd26ae2e018af@ec2-3-212-75-25.compute-1.amazonaws.com:5432/da85e7t5v78frf"
-   
+    connectionString:
+    process.env.NODE_ENV === "production" ? proConfig : devConfig
 });
 module.exports = pool;

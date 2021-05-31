@@ -50,7 +50,7 @@ function FormComponents() {
         console.log(studentList);
        
       });
-      alert(`{fullname} Thanyou your form had been submited`)
+      alert(`${fullname} Thankyou your form had been submited`)
 };
 
   return (

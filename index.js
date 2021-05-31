@@ -3,14 +3,13 @@ const cors = require('cors');
 const app = express();
 const pool = require('./db');
 const { restart } = require('nodemon');
-// require("dotenv").config();
+
 const path = require("path");
 
 // middlewares
 app.use(cors());
 app.use(express.json());
-
-const whiteList = ['http://localhost:3000/','http://localhost:5000/', 'https://fullstack-psql-crus-app.herokuapp.com/']
+app.use(express.static(path.join(__dirname,"frontend/build")));
 
 app.use(function(req, response, next) {
     response.header("Access-Control-Allow-Origin"); // update to match the domain you will make the request from
@@ -108,6 +107,7 @@ if (process.env.NODE_ENV == "production"){
  }
    console.log(__dirname);
    console.log(path.join(__dirname,"frontend/build"));
+
 app.get("*", (req,res) => {
     res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
 });
