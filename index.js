@@ -2,15 +2,25 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const pool = require('./db');
-const { restart } = require('nodemon');
-
 const path = require("path");
+const PORT = process.env.PORT || 5000;
+// process.env.PORT
 
 // middlewares
 app.use(cors());
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname,"frontend/build")));
+
+// process.env.NODE_ENV => production or undefined
+if (process.env.NODE_ENV == "production"){
+    //  server static content
+    // npm run build
+    app.use(express.static(path.join(__dirname,"frontend/build")));
+ }
+//    console.log(__dirname);
+//    console.log(path.join(__dirname,"frontend/build"));
+
 
 app.use(function(req, response, next) {
     response.header("Access-Control-Allow-Origin"); // update to match the domain you will make the request from
@@ -101,19 +111,12 @@ res.json("students data has been dleted successfully ");
     console.log(err);
 }
 })
-if (process.env.NODE_ENV == "production"){
-    //  server static content
-    // npm run build
-    app.use(express.static(path.join(__dirname,"frontend/build")));
- }
-   console.log(__dirname);
-   console.log(path.join(__dirname,"frontend/build"));
 
 app.get("*", (req,res) => {
-    res.sendFile(path.join(__dirname, 'frontend/build/index.html'));
+    res.sendFile(path.join(__dirname, 'frontend/build/', 'index.html'));
 });
 // start server
-const PORT = process.env.PORT || 5000;
+
 app.listen(PORT,()=>{
     console.log(`server is running on ${PORT}`)
 })

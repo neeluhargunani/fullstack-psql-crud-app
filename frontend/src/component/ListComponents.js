@@ -4,7 +4,7 @@ import { Table,Card } from 'react-bootstrap';
 import UpdateStudents from './UpdateStudents';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faTimes } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 
@@ -41,12 +41,11 @@ const ListComponents = () => {
 
   return (
     <Fragment>
-    <div className="register">
-    <div className="container">
-    <div className="row">
-    <Link to ="/" className="table-link" >back to Registration</Link>
-    <div className="col-md-12 col-lg-12 col-sm-12 col-xl-12 mt-5 ">
-    <Card className="p-3 card box">
+    
+   
+    {/* <Link to ="/" className="table-link" >back to Registration</Link> */}
+    <div className="col-md-8 col-lg-8 col-sm-12 col-xl-8  ">
+    <Card className=" card box">
                     <Card.Title  className="text-center mt-2 c-title"><h3>Registerd Students List</h3></Card.Title>
                     <div className="table-responsive">
                     <Table className="table table-striped table-hover">
@@ -59,7 +58,7 @@ const ListComponents = () => {
       <th>Address</th>
       <th>Course</th>
       <th>Message</th>
-      <th>operations</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -79,10 +78,10 @@ const ListComponents = () => {
                
       <UpdateStudents student = {student}/>
 
-               <Link> <span onClick={() => deleteStudent(student.std_id)}>
+                <span onClick={() => deleteStudent(student.std_id)}>
                <FontAwesomeIcon icon={faTimes} className="text-danger" />
                 </span>
-                </Link>
+                
               </td>
        </tr>)
      }
@@ -95,9 +94,8 @@ const ListComponents = () => {
     
   
     </div>
-    </div>
-     </div>
-     </div>
+    
+     
     </Fragment>
   );
 }

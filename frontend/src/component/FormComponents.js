@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button,  InputGroup, Card } from 'react-bootstrap';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import ListComponents from './ListComponents';
 
 // import ListComponents from './ListComponents';
 
@@ -57,8 +58,8 @@ function FormComponents() {
     <div className="register">
     <div className="container ">
     <div className= "row mt-5 p-3  ">
-  <div className="col-md-8 col-lg-8 col-sm-12 col-xl-8 m-auto d-lg-flex d-md-flex d-xl-flex ">
-    <div className="col-md-4  p-0 ">
+  <div className="col-md-4 col-lg-4 col-sm-12 col-xl-4 ">
+    {/* <div className="col-md-4  p-0 ">
     <Card className="register-left card">
     <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                         <h3> WebCreationz Tutions</h3>
@@ -69,10 +70,10 @@ function FormComponents() {
                         <h6>Designed and developed by neelu hargunani contact :neelamh1000@gmail.com 7400219129</h6>
                         </Card>
                     </div>
-     
-    <div className="col-md-8 p-0 register-right">
+      */}
+    <div className=" p-0 register-right">
    
-    <Card className="p-3 card">
+    <Card className=" card">
     <Card.Title className="text-center mt-2 c-title">Course Enrollment Form</Card.Title>
     <Card.Body>
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -177,6 +178,7 @@ function FormComponents() {
     
     </div>
     </div>
+    <ListComponents/>
     </div>
     </div>
     </div>

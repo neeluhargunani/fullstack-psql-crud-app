@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Modal, Button, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {   faPenFancy } from '@fortawesome/free-solid-svg-icons'
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 
 const UpdateStudents = ({ student }) => {
@@ -31,7 +31,7 @@ const UpdateStudents = ({ student }) => {
         }
       );
 
-      window.location = "/listcomponents";
+      window.location = "/";
     } catch (err) {
       console.error(err.message);
     }
@@ -40,12 +40,12 @@ const UpdateStudents = ({ student }) => {
     
         return (
             <Fragment>
-             <Link> 
+             
               <span onClick={handleShow} >
               <FontAwesomeIcon icon={faPenFancy} className="text-primary" />
 
       </span>
-</Link>
+
       <Modal show={show} onHide={handleClose}>
       
         <Modal.Header>
