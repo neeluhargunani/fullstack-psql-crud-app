@@ -9,6 +9,7 @@ const path = require("path");
 // middlewares
 app.use(cors());
 app.use(express.json());
+
 app.use(express.static(path.join(__dirname,"frontend/build")));
 
 app.use(function(req, response, next) {
@@ -109,7 +110,7 @@ if (process.env.NODE_ENV == "production"){
    console.log(path.join(__dirname,"frontend/build"));
 
 app.get("*", (req,res) => {
-    res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'frontend/build/index.html'));
 });
 // start server
 const PORT = process.env.PORT || 5000;
