@@ -22,18 +22,18 @@ if (process.env.NODE_ENV == "production"){
 //    console.log(path.join(__dirname,"frontend/build"));
 
 
-app.use(function(req, response, next) {
-    response.header("Access-Control-Allow-Origin"); // update to match the domain you will make the request from
-    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+// app.use(function(req, response, next) {
+//     response.header("Access-Control-Allow-Origin"); // update to match the domain you will make the request from
+//     response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
   
-//routes
-//creating a new student
-pool.connect((err)=>{
-    if(err) throw err
-    console.log("postgreesql Connected")
-});
+// //routes
+// //creating a new student
+// pool.connect((err)=>{
+//     if(err) throw err
+//     console.log("postgreesql Connected")
+// });
    
 //get all students
  app.get("/students" ,async (req, res) =>{
